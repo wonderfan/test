@@ -10,3 +10,6 @@ The configuration file is a bit hard in the low level language. The file is open
 
 The nginx cycle is defined by struct type. In the struct body, the type is before the variable name. The types for nginx cases are definied like list, array, str and int. 
 
+As for the document and book, there are nginx cookbook, mastering nginx, nginx module reference on the internet. Each directive ends with a semicolon. The curly braces denotes a new configuration context. The use directive in the events section can choose the event mechanism. The default value is epool mechanism. The http configuration section controls all the aspects of working with http module. The http section includes io and sockect configurations. 
+
+
