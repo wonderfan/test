@@ -8,3 +8,5 @@ The procedures in the core file are debug intilization, time initialization, pro
 
 The configuration file is a bit hard in the low level language. The file is opened, parsed and assigned into memory area. The whole capabilities are enabled and supported by the modules. The http proxy module and upstream module are used in the proxy module. 
 
+The nginx cycle is defined by struct type. In the struct body, the type is before the variable name. The types for nginx cases are definied like list, array, str and int. 
+
