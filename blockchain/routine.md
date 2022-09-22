@@ -12,3 +12,8 @@ In order to properly prioritize your performance effort, the most valuable strat
 
 Profilers do dynamic analysis of the program to measure the performance in many aspects, like CPU utilization and memory allocation. Profilers also point out the piece of code that is misbehaving: consuming a lot of the CPU’s capacity or making too many calls to a method. Library ants(https://github.com/panjf2000/ants) implements a goroutine pool with fixed capacity, managing and recycling a massive number of goroutines, allowing developers to limit the number of goroutines in your concurrent programs.
 
+Go’s scheduler has three basic concepts. G is goroutine. M is an OS thread. P is a processor. P handles multiplexing some goroutines onto some OS threads. OS thread behaves like a worker for goroutine using a run queue. What is important is P uses a smart scheduling strategy called a work-stealing algorithm. Therefore P efficiently schedules available goroutines onto OS threads. 
+
+## Networking
+
+
