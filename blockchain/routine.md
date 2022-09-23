@@ -16,4 +16,4 @@ Go’s scheduler has three basic concepts. G is goroutine. M is an OS thread. P 
 
 ## Networking
 
-The network event has kqueue and epool mechanism for IO events.
+The network event has kqueue and epool mechanism for IO events. Go has a powerful built-in profiler that supports CPU, memory, goroutine and block (contention) profiling.Goroutine profile dumps the goroutine call stack and the number of running goroutines. Blocking profile shows function calls that led to blocking on synchronization primitives like mutexes and channels. A “Stop the World” (STW) is a crucial phase in some garbage collector algorithms to get track of the memory. It suspends the execution of the program to scan the memory roots and add write barriers.
