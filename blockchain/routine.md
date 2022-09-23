@@ -16,4 +16,4 @@ Go’s scheduler has three basic concepts. G is goroutine. M is an OS thread. P 
 
 ## Networking
 
-
+The network event has kqueue and epool mechanism for IO events.
