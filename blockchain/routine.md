@@ -34,4 +34,19 @@ If a variable has its address taken, that variable is a candidate for allocation
 
 perf_events, like other debug tools, needs symbol information (symbols). These are used to translate memory addresses into function and variable names, so that they can be read by us humans. Without symbols, you'll see hexadecimal numbers representing the memory addresses profiled.
 
+## Go Scheduler
+
+In Go and Golang programming, a scheduler is responsible for distributing jobs in a multiprocessing environment. When the available resources are limited, it is the task of the scheduler to manage the work that needs to be done in the most efficient way. In Go, the scheduler is responsible for scheduling goroutines, which is particularly useful in concurrency. Goroutines are like OS threads, but they are much lighter weight. However, goroutines always take the help of the underlying OS thread model and the scheduler it works on is at a much higher level than the OS scheduler. 
+
+CPUs today come with multiple cores – these multicore processors are optimized to handle simultaneous execution – also known as parallel processing. This occurs at the hardware level and it is nice to have multiprocessing ability imbibed into the core functionality of the processors. But the problem is that there must be something that manages the incoming multiple jobs and distributes them among the available processors. This is the job of the scheduler and the process is known as scheduling. A scheduler schedules jobs at the software level and is a core part of the operating system functionality. Being part of the operating system, a scheduler is well aware of the intricacies and working mechanisms of the operating system; also, the scheduler must be aware of the hardware layout it is running on. This makes the scheduler a complex piece of software.
+
+The Go runtime scheduler schedules goroutines. A goroutine is a lightweight thread that has the ability to execute on a single OS thread. The OS threads run on single or multiple available processors. The runtime scheduler of Go distributes goroutines over multiple threads. The scheduler determines the state of the goroutine. A life cycle of the goroutine can be in one of three fundamental states : running, runnable, and not runnable (due to IO blocked or system call).
+
+Go works on a type of scheduler called an m:n scheduler (M:N scheduler), which states that M number of goroutines can be distributed over N number of OS threads. Comparatively, OS threads have much more overhead than goroutines. Therefore, Go uses a limited number of threads to run a maximum number of goroutines.
+
+Similar to kernel level threads managed entirely by the OS, goroutines are user-space threads managed entirely by the Go runtime and the runtime scheduler schedules them. This makes goroutines cheaper, more lightweight than kernel threads, and they run on a very small memory footprint (with initial stack size of 2kb, whereas the default stack size of a thread is 8kb).
+
+One of the problems with concurrent execution is the underutilized processor. Although the fair scheduling strategy tries to share execution load to all available processors, it is not always the case, because most distributed tasks are dependent on other tasks. This makes load sharing among multiple available processors unequal. There is always a chance that some processors are actually more utilized than the others. Moreover, holding a global lock to manage goroutines is expensive. Heavy IO block programs are prone to constant preemption of OS threads which is a significant overhead. A simple workaround of the problem is work stealing.
+
+The work stealing strategy the Go scheduler looks for any logical underutilized processor and steals some processing time for the runnable goroutines to execute.
 
