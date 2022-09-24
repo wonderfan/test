@@ -50,3 +50,11 @@ One of the problems with concurrent execution is the underutilized processor. Al
 
 The work stealing strategy the Go scheduler looks for any logical underutilized processor and steals some processing time for the runnable goroutines to execute.
 
+## Go Runtime
+
+Within the Go source code, we can see the runtime source by looking at https://golang.org/src/runtime/. The runtime package contains operations that interact with the Go runtime. This package is used to control things such as goroutines, garbage collection, reflection, and scheduling, which are all functions that are essential to the operation of the language. Within the runtime package, we have many environment variables that help us change the runtime behavior of Go executables. 
+
+GODEBUG is the controller of the variables and is used for debugging within the Go runtime. This variable contains a list of name=val key-value pairs, separated by commas. These named variables are used to tune the output of the debugging information the binary will return. One of the nice things about this variable is that the runtime allows you to apply this directly to a precompiled binary, rather than invoking it at build time. This is nice because it allows you to debug a binary that has already been built (and potentially already causing harm in a production environment). 
+
+
+
