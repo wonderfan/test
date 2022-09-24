@@ -28,4 +28,10 @@ Threads managed by the OS are completely abstracted away from us by the Go runti
 
 Go compilers will allocate variables that are local to a function in that function’s stack frame. However, if the compiler cannot prove that the variable is not referenced after the function returns, then the compiler must allocate the variable on the garbage-collected heap to avoid dangling pointer errors. Also, if a local variable is very large, it might make more sense to store it on the heap rather than the stack.
 
-If a variable has its address taken, that variable is a candidate for allocation on the heap. However, a basic escape analysis recognizes some cases when such variables will not live past the return from the function and can reside on the stack. 
+If a variable has its address taken, that variable is a candidate for allocation on the heap. However, a basic escape analysis recognizes some cases when such variables will not live past the return from the function and can reside on the stack. Stack traces play a critical role in Go profiling. Unwinding (or stack walking) is the process of collecting all the return addresses (elements in Stack Layout) from the stack. Frame pointer unwinding is the simple process of following the base pointer register (rbp) to the first frame pointer on the stack which points to the next frame pointer and so on. Symbolization is the process of taking one or more program counter (pc) address and turning them into human readable symbols such a function names, file names and line numbers. This article provides more details (https://github.com/DataDog/go-profiler-notes/blob/main/stack-traces.md).
+
+## Perf command
+
+
+
+
