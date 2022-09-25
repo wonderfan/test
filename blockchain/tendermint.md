@@ -74,7 +74,7 @@ while true; do
 done
 ```
 
-## Permissied Chain
+## Permissioned Chain Based on Cosmos-SDK
 
 - [ledger](https://github.com/zigbee-alliance/distributed-compliance-ledger)
 - [meta](https://github.com/davebryson/menta)
