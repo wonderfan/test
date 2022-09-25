@@ -15,9 +15,12 @@ git clone -b v0.34.11 https://github.com/tendermint/tendermint.git
 
 pprof_laddr = ":6060"
 
+- GOMAXPROCS=2
+
 ports:
     - "26656-26657:26656-26657"
     - "6060:6060"
+
 
 ```
 
@@ -37,9 +40,9 @@ make build
     --broadcast-tx-method async \
     --endpoints ws://127.0.0.1:26657/websocket,ws://127.0.0.1:26662/websocket,ws://127.0.0.1:26664/websocket,ws://127.0.0.1:26660/websocket
 
-./build/tm-load-test -c 10 -T 120 -r 200 -s 250 \
+./build/tm-load-test -c 4 -T 120 -r 200 -s 250 \
     --broadcast-tx-method sync \
-    --endpoints ws://127.0.0.1:26657/websocket,ws://127.0.0.1:26662/websocket,ws://127.0.0.1:26664/websocket,ws://127.0.0.1:26660/websocket    
+    --endpoints ws://127.0.0.1:26657/websocket,ws://127.0.0.1:26660/websocket,ws://127.0.0.1:26662/websocket,ws://127.0.0.1:26664/websocket    
 
 ```
 
@@ -47,7 +50,7 @@ make build
 
 ```
 
-curl http://localhost:6060/debug/pprof/trace?seconds=30 > trace.out
+curl http://localhost:6060/debug/pprof/trace?seconds=120 > trace.out
 
 go tool pprof http://127.0.0.1:6060/debug/pprof/profile
 
