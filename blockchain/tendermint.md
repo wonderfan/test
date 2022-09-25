@@ -73,3 +73,11 @@ while true; do
     ./simd tx bank send cosmos1xer4l09p9zxgy0p386cf2fkzd3f75hh6hrunnh cosmos18kuk50gdwmuc6m85jgj7x7ecnx6e0p6ygzj2qz 1testtoken --chain-id chain-R1lnrj --keyring-backend test --home node3/simd --yes -b block
 done
 ```
+
+## Permissied Chain
+
+- [ledger](https://github.com/zigbee-alliance/distributed-compliance-ledger)
+- [meta](https://github.com/davebryson/menta)
+- [pki](https://github.com/hashcloak/katzenmint-pki)
+- [steelcerts](https://github.com/olaeseane/steelcerts)
+
