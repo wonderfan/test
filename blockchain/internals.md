@@ -91,6 +91,6 @@ pkg/profile provides a simple way to manage runtime/pprof profiling of your Go a
 runtime/trace contains facilities for programs to generate traces for the Go execution tracer
 runtime/debug contains facilities for programs to debug themselves while they are running
 
-profiling and benchmarking should be part of earlier stages when the code is still in baking stage and not merged into production. 
+Profiling and benchmarking should be part of earlier stages when the code is still in baking stage and not merged into production. 
 
 
