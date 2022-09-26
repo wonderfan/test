@@ -72,3 +72,25 @@ When a Golang program starts, the main thread creates the first goroutine to exe
 
 When G exits, the goexit() function is executed and the state of G changes from _Grunning to _Gdead. However, the G object is not freed directly, but is put into the local or global idle list gFree of the associated P for reuse via gfput(). Priority is given to the P local queue, and if there are more than 64 gFree in the P local queue, only 32 will be kept in the P local queue, and any more than that will be put into the global idle queue sched.gFree.
 
+## Memory Allocation
+
+The Go language has a built-in runtime (that is, runtime) that abandons the traditional way of allocating memory in favor of autonomous management. This allows for autonomous implementation of better memory usage patterns, such as memory pooling, pre-allocation, etc. This way, you don’t need to make a system call for every memory allocation. 
+
+The Golang runtime memory allocation algorithm is derived from Google’s TCMalloc algorithm for C. The core idea is to reduce the granularity of locks by dividing memory into multiple levels of management. It manages the available heap memory in a two-level allocation: each thread maintains a separate memory pool of its own and allocates memory from that pool first, and only applies to the global memory pool when the pool is insufficient to avoid frequent competition between different threads for the global memory pool.
+
+Whether a variable is allocated on the stack or on the heap is determined by the result of the escape analysis. Usually, the compiler prefers to allocate variables on the stack because it has less overhead, and the most extreme is “zero garbage”, where all variables are allocated on the stack so that there is no memory fragmentation, garbage collection, or anything like that.
+
+## Profiling
+
+There are multiple way to identify the opportunity area
+
+runtime/pprof is a tool for visualization and analysis of profiling data.
+It’s useful for identifying where your application is spending its time (CPU and memory).
+net/http/pprof serves via its HTTP server runtime profiling data in the format expected by the runtime/pprof visualization tool.
+pkg/profile provides a simple way to manage runtime/pprof profiling of your Go application
+runtime/trace contains facilities for programs to generate traces for the Go execution tracer
+runtime/debug contains facilities for programs to debug themselves while they are running
+
+profiling and benchmarking should be part of earlier stages when the code is still in baking stage and not merged into production. 
+
+
