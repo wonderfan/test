@@ -93,6 +93,27 @@ while true; do
   hcd tx bank send erhai1e5huuqsz4zedzd4xwgxt3a6muxfc0kjz3pp805 erhai12rsdhrt4ngg9dnxm2utdvqcfjm3h3wht7lzvhl 1token --chain-id erhai --keyring-backend test --home node0 --yes -b block
 done
 
+hcd keys add jimmy --home node0
+
+while true; do
+  hcd tx bank send erhai12rsdhrt4ngg9dnxm2utdvqcfjm3h3wht7lzvhl erhai1lmu0he6rj29k9q8qau4h74zlhk8969aj9pdnpx 1token --chain-id erhai --keyring-backend test --home node0 --yes -b block
+done
+
+hcd keys add lily --home node0
+
+
+while true; do
+  hcd tx bank send erhai1lmu0he6rj29k9q8qau4h74zlhk8969aj9pdnpx erhai1gkd48sx9kxqspfh77j9cquk840x66dffg5h96l  1token --chain-id erhai --keyring-backend test --home node0 --yes -b block
+done
+
+hcd tx permission account approve erhai1gkd48sx9kxqspfh77j9cquk840x66dffg5h96l ROLE_USER --chain-id erhai --home node0 --yes -b block --from admin
+
+while true; do
+  hcd tx bank send erhai1gkd48sx9kxqspfh77j9cquk840x66dffg5h96l erhai1e5huuqsz4zedzd4xwgxt3a6muxfc0kjz3pp805  1token --chain-id erhai --keyring-backend test --home node0 --yes -b block
+done
+
+hcd keys add john --home node0 --output=json 
+
 ```
 
 ## Permissioned Chain Based on Cosmos-SDK
