@@ -22,3 +22,4 @@ The function support is added in this release.
 
 ## Debug Tips
 
+There are several ways to debug jmeter scripts. One is to use debug sampler. The second is view result tree. The third is log viewer. The dummy sampler is last approach. 
