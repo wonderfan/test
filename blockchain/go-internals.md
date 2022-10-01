@@ -97,5 +97,7 @@ Profiling and benchmarking should be part of earlier stages when the code is sti
 
 The differences between runtime code and normal codes are articulated by document. The runtime includes concepts and its interfaces. The core part of runtime is scheduler. The go routine is the target which scheduler cares about. The label is composed of key and value two fields.
 
-The binary is in the format of ELF and it is read and parsed. The profile stands for some data and it has its own write ability. That is to say, the profile data can output to other channel or device. The profile data is read from the runtime and output into the writer you provide. 
+The binary is in the format of ELF and it is read and parsed. The profile stands for some data and it has its own write ability. That is to say, the profile data can output to other channel or device. The profile data is read from the runtime and output into the writer you provide. The heap area is the critical aspect of memory which the program occupies and the debugger wants to view. The correct data type is created and used to collect and organize the data. The file is read and parsed one character by character according to elf specification and rules. The debug package is the second layer of runtime package. It provides some debug interfaces for runtime memory garbage collection and memory statistics.
+
+The execution trace captures a wide range of execution events such as goroutine creation, blocking, unblocking, syscall enter, exit, block, garbage collection events, changes of heap size, processor start, stop and etc. 
 
