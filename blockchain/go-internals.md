@@ -97,5 +97,5 @@ Profiling and benchmarking should be part of earlier stages when the code is sti
 
 The differences between runtime code and normal codes are articulated by document. The runtime includes concepts and its interfaces. The core part of runtime is scheduler. The go routine is the target which scheduler cares about. The label is composed of key and value two fields.
 
-The binary is in the format of ELF and it is read and parsed. 
+The binary is in the format of ELF and it is read and parsed. The profile stands for some data and it has its own write ability. That is to say, the profile data can output to other channel or device. The profile data is read from the runtime and output into the writer you provide. 
 
