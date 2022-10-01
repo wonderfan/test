@@ -4,4 +4,4 @@ buddy system and slab are two kinds of free memory allocation algorithm. The ngi
 
 Some module prototype functions are defined and declared to meet the needs of module initialization, addition, search and cycle. The system header files are included in the nginx configuration header file. The system header files are included together into one header file. The pool concept is introduced in the nginx and put some data into the pool. The queue data structure is used to chain the data. 
 
-The task is assigned to thread. The current thread task knows next thread task. The thread task has one handler to process the task and event for the task process. 
+The task is assigned to thread. The current thread task knows next thread task. The thread task has one handler to process the task and event for the task process. The event has data and state. The event has handler to finish the task. The IO operation is also one kind of event. The relationship between event and connection should be specified. The normal flow is to create socket and connection. The item is organized by table and each item is one element. 
