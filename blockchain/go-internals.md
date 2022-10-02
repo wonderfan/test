@@ -101,6 +101,8 @@ The binary is in the format of ELF and it is read and parsed. The profile stands
 
 The execution trace captures a wide range of execution events such as goroutine creation, blocking, unblocking, syscall enter, exit, block, garbage collection events, changes of heap size, processor start, stop and etc. The calculation is the math operation behind the scene. The hash algorithm is presented in the runtime package. The assemble codes is written for the runtime entry point. When the go program runs, the main function coded in the assembly language is the starting point. The variable syntax is keword plus variable name plus variable type. The memory map is the function from c lanuage and it is callde by system call from go high level language. 
 
+The type data structure is declared for abstract concept and used to describe the concrete types. The type consists of type kind, name, package metadata. The channel is a concept and mechanism. The implementation is located in the chan source code file. 
+
 ## POSIX
 
 The posix specification contains asynchronous io, character type, assertion, file control operation, network interface operation, file multiplex poll mechansim, tcp protocol, thread management, regular expression, process spawning and signal.
