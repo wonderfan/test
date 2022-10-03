@@ -103,7 +103,7 @@ The execution trace captures a wide range of execution events such as goroutine 
 
 The type data structure is declared for abstract concept and used to describe the concrete types. The type consists of type kind, name, package metadata. The channel is a concept and mechanism. The implementation is located in the chan source code file. The send, receive and close functions are rendered in the channel source code file. The select statment is supported by the channel select function. The pointer and its actual type is aligned before processing the pointer type. This way can assure the pointer security. The compiler file supplies the default compiler for usage. The complex number type is one kind of number type in math. The actions are also given to process this type. The variables about cpu facets are specified by constant values. 
 
-The cpu profile is narrated by struct type and some functions are recitied around this data type. What is cpu profile is stated by data strucure. How to read and write cpu profile is portrayed by the computation steps. 
+The cpu profile is narrated by struct type and some functions are recitied around this data type. What is cpu profile is stated by data strucure. How to read and write cpu profile is portrayed by the computation steps. The debug file can get some runtime data and changes the runtime configuration value. The maximum processor and stack size are two common items. 
 
 ## POSIX
 
