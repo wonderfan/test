@@ -106,7 +106,8 @@ The type data structure is declared for abstract concept and used to describe th
 The cpu profile is narrated by struct type and some functions are recitied around this data type. What is cpu profile is stated by data strucure. How to read and write cpu profile is portrayed by the computation steps. The debug file can get some runtime data and changes the runtime configuration value. The maximum processor and stack size are two common items. 
 
 The function name and file name information is extracted from the address. The address is in the format of hexadecimal number.
-The standard error is a special file. The object file is opened and its table data is retrieved. The address is passed and the mapping information is obtained from the symbol table.
+The standard error is a special file. The object file is opened and its table data is retrieved. The address is passed and the mapping information is obtained from the symbol table. Some commands are targeted at the object file. The symbol has size, name, type and is organized into table. They have addresses and can be sorted. The symbols can be listed by nm command. The bss segment stands for ‘block start by symbol’ is the memory space for uninitialized variables of your code.
+
 
 ## POSIX
 
